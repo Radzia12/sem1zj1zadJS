@@ -1,0 +1,127 @@
+<!--Treść zadania
+Program powinien wyświetlać jakiś uniwersalny komunikat powitalny oraz pole do wprowadzenia nazwy użytkownika. Po wpisaniu nazwy i naciśnięciu przycisku "OK", powinien zostać wyświetlony komunikat "Witaj, użytkowniku [...]", zawierający wprowadzoną nazwę użytkownika.-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="script1.js" ></script><!-- dodanie pliku js -->
+		<title> zjazd nr 1</title>
+		<link rel="stylesheet" type="text/css" href="main.css">
+	</head>
+	<body>
+		
+		<h1 class = "h1"> Zadanie1.</br>
+			Program powinien wyświetlać jakiś uniwersalny komunikat powitalny oraz pole do wprowadzenia nazwy użytkownika.
+			Po wpisaniu nazwy i naciśnięciu przycisku "OK", powinien zostać wyświetlony komunikat "Witaj, użytkowniku [...]",
+			zawierający wprowadzoną nazwę użytkownika.</br></br>
+			Zadanie2</br>
+			Program powinien pozwolić na wpisanie dwóch wartości liczbowych i po naciśnięciu przycisku "OK" powinien wyświetlić 
+			wynik pięciu podstawowych operacji matematycznych (+ - * / %).</br></br>
+			Zadanie 2.1</br>
+			(***) Wykonaj to samo, ale dla dwóch losowych liczb z przedziału 1-20.</br></br>
+			Zadanie 3</br>
+			Program powinien pozwalać na wykonanie rzutu kością - naciskamy przycisk "rzuć", a poniżej wyświetla się komunikat o 
+			wylosowanej wartości z przedziału 1-6.</br></br>
+			Zadanie 3.1</br>
+			(***) Pozwól na wskazanie dowolnego przedziału z którego losowana jest liczba (pole "od" i "do")</br></br>
+			Zadanie 4</br>
+			Program powinien pozwolić na przeliczanie jednostek z centymetrów na cale - do dyspozycji mamy dwa pola tekstowe 
+			(jedno na wartość w cm, drugie na wartość w calach) oraz dwa przyciski - na naciśnięciu jednego wartość podana w cm 
+			jest przeliczana na cale i wpisywana w drugim polu, po naciśnięciu drugiego - na odwrót. Cal to 2,54 cm.</br></br>
+			Zadanie 4.1</br>
+			(***) Dodaj przeliczanie temperatury z Celsjuszy na Fahrenheity i na odwrót.</br></br>
+			Zadanie 5</br>
+			Program powinien wyświetlać sumę pieniędzy odłożoną na koncie (początkowo 0), pole tekstowe na wprowadzenie kwoty oraz 
+			dwa przyciski - wpłać i wypłać. Po naciśnięciu jednego kwota dodawana jest do środków na koncie (a wyświetlana wartość 
+			jest aktualizowana), po naciśnięciu drugiego - odejmowana.</br></br>
+			</h1>
+
+
+		<!-- Zadanie 1-->
+		<h2> Zadanie 1 </br></h2>
+		<p>Wprowadz dane urzytkownaika i nacisnij ok</p>
+		<input type="text" id="name" >	<!-- deklaracja pola do wprowadzania textu -->
+		<input type ="button" value="ok" onclick="klik()"> 	<!-- deklaracja przycisku przez ktory bedzie wykonywana funkcja -->
+		<br>
+		<div id="out"></div> <!-- miejsce gdzie bedzie zwracany napis -->
+		
+
+		<!-- Zadanie 2-->
+		<h2> Zadanie 2 </br></h2>
+		<p>Program liczacy podstawowe operacji matematyczne</p>
+		<p>wpisz dwie liczby do pol</p>
+		<input type="text" id="pole1" value ="3">
+		<br>
+		<input type="text" id="pole2" value="0"> 
+		<br>	
+		<input type="button" id="btn1" value="przelicz" onclick="licz()">
+		<div id="div">wynik</div>
+		
+
+		<!-- Zadanie 2.1-->
+		<h2> Zadanie 2.1 </br></h2>
+		<p>pobiera dwie liczby losowe</p>
+		<input type="button" id="btn2" value="przelicz" onclick="licz1()">
+		<div id="div1">wynik</div>
+
+		<!-- Zadanie 3-->
+		<h2> Zadanie 3 </br></h2>
+		<p>program do rzucania kostka</p>
+		<p>nacisnij na przycisk aby rzucic</p>	
+		<input type="button" id="btn3" value="rzuc" onclick="licz2()">
+		<div id="div2">wynik</div>
+
+		<!-- Zadanie 3.1-->
+		<h2> Zadanie 3.1 </br></h2>
+		<p>program do losowania z przedzialu</p>
+		<p>nacisnij na przycisk aby rzucic</p>
+		<p>przedzial od</p>
+		<input type="text" id="pocz" value="1">
+		<br>
+		<p>przedzial do</p>
+		<input type="text" id="kon" value="10">		
+		<input type="button" id="btn" value="rzuc" onclick="licz3()">
+		<br>
+		<div id="div3">wynik</div>
+
+		<!-- Zadanie 4-->
+		<h2> Zadanie 4</br></h2>
+		<p>	Program powinien pozwolpozycji mamy dwa pola tekstowe (jedno na wartość w cm, drugie na wartość w calach) oraz dwa przyciski - na naciśnięciu jednego wartość podana w cm jest przeliczana na cale i wpisywana w drugim polu, po naciśnięciu drugiego - na odwrót. Cal to 2,54 cm.
+		</p>
+
+		<input type = "text" id = "cale1" value= "3" > cale </input>
+		<br>
+		<input type = "text" id = "centy1" value = "2" > centymetry </input>
+		<br>
+		<input type = "button" value = "na centy" onclick = "liczCent()"/>
+		<br>
+		<input type = "button" value = "na cale" onclick = "liczCale()"/>
+
+		<!-- Zadanie 4.1-->
+		<h2>zadanie nr 4.1</h2>
+		<p>	Dodaj przeliczanie temperatury z Celsjuszy na Fahrenheity i na odwrót.</p>
+
+		<input type = "text" id = "cel" value= "3" > stopnie Celsjuszy </input>
+		<br>
+		<input type = "text" id = "far" value = "2" > Stopnie Fahrenheity </input>
+		<br>
+		<input type = "button" value = "na farenheity" onclick = "liczCel()"/>
+		<br>
+		<input type = "button" value = "na celsjusze" onclick = "liczFar()"/>
+		
+		<!-- Zadanie 5-->
+		<h2>zadanie 5</h2>
+		<p>Program powinien wyświetlać sumę pieniędzy odłożoną na koncie (początkowo 0), pole tekstowe na wprowadzenie kwoty oraz dwa przyciski
+			 - wpłać i wypłać. Po naciśnięciu jednego kwota dodawana jest do środków na koncie (a wyświetlana wartość jest aktualizowana), 
+			 po naciśnięciu drugiego - odejmowana</p>
+		<br>
+		<label>ile chcesz wplacic?</label><br>
+		<input type="text" id= "pole" value = "2"></input>
+		<br><br>
+		<input type="button" onclick="dodaj()" value="dodaj"><br><br>
+		<input type="button" onclick="odejmij()" value="odejmij"><br><br>
+		<label id="stan_konta">Stan konta</label><br>
+		<input type="text" id= "konto" value = "0"></input>
+		<div id="alarm"></div>
+	</body>
+</html>
